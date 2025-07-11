@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2d3436, #000000);
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+">
+    <div style="
+        width: 400px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        animation: fadeIn 1s ease-out forwards;
+    ">
+        <h2 style="
+            font-size: 28px;
+            background: linear-gradient(45deg, #6c5ce7, #fd79a8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            text-align: center;
+        ">Welcome, {{ user.name }}</h2>
+
+        <p><strong>Gender:</strong> {{ user.gender }}</p><br>
+        <p><strong>Age:</strong> {{ user.age }}</p><br>
+        <p><strong>Address:</strong> {{ user.address }}</p><br>
+        <p><strong>Email:</strong> {{ user.email }}</p><br>
+        <p><strong>Phone:</strong> {{ user.phone }}</p><br>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('logout') }}" style="
+                display: inline-block;
+                padding: 12px 20px;
+                background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+                color: #fff;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background 0.3s ease;
+            " onmouseover="this.style.background='linear-gradient(45deg, #a29bfe, #6c5ce7)'" 
+              onmouseout="this.style.background='linear-gradient(45deg, #6c5ce7, #a29bfe)'">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

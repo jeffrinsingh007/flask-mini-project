@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --accent: #fd79a8;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --success: #00b894;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2d3436, #000);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Layers */
+.particles, .floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.particle, .shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Login/Signup Container */
+.login-container {
+    position: relative;
+    width: 420px;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.login-header h2 {
+    font-size: 32px;
+    color: var(--light);
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 6s ease infinite;
+    background-size: 200% 200%;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.login-header p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+/* Input Group */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+.input-group input {
+    width: 100%;
+    padding: 16px 18px 16px 45px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 15px;
+    outline: none;
+}
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-button:hover {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    box-shadow: 0 0 20px var(--secondary);
+}
+
+/* Link */
+.signup-link, .login-link {
+    text-align: center;
+    color: #ccc;
+    margin-top: 20px;
+}
+.signup-link a, .login-link a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+.signup-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+        padding: 40px 30px;
+    }
+}
